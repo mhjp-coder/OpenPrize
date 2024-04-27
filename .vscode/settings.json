@@ -1,0 +1,12 @@
+{
+  "djlint.profile": "jinja",
+  "python.terminal.activateEnvInCurrentTerminal": true,
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "driver": "SQLite",
+      "name": "Local DB",
+      "database": "${workspaceFolder:OpenPrize}/src/database.sqlite3"
+    }
+  ]
+}

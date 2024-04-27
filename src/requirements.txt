@@ -1,0 +1,7 @@
+flask
+werkzeug
+SQLite3-0611
+pandas
+openpyxl
+flask-htmx
+xlrd

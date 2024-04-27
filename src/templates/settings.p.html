@@ -1,0 +1,140 @@
+<div id="flash_message">{% include "flash.p.html" %}</div>
+<section>
+  <h5 class="p-6 mb-4 leading-tight border-b-2 text-warning sm:text-5xl text-7xl border-danger">Settings</h5>
+</section>
+<section class="flex flex-col p-6 my-6 space-y-8 justify-evenly">
+  <div class="flex flex-grow">
+    <input class="me-2 mb-4 sm:mb-0 mt-[0.3rem] h-3.5 w-8 appearance-none rounded-[0.4375rem] bg-black/25 before:pointer-events-none before:absolute before:h-3.5 before:w-3.5 before:rounded-full before:bg-transparent before:content-[''] after:absolute after:z-[2] after:-mt-[0.1875rem] after:h-5 after:w-5 after:rounded-full after:border-none after:bg-white after:shadow-switch-2 after:transition-[background-color_0.2s,transform_0.2s] after:content-[''] checked:bg-primary checked:after:absolute checked:after:z-[2] checked:after:-mt-[3px] checked:after:ms-[1.0625rem] checked:after:h-5 checked:after:w-5 checked:after:rounded-full checked:after:border-none checked:after:bg-primary checked:after:shadow-switch-1 checked:after:transition-[background-color_0.2s,transform_0.2s] checked:after:content-[''] hover:cursor-pointer focus:outline-none focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-switch-3 focus:before:shadow-black/60 focus:before:transition-[box-shadow_0.2s,transform_0.2s] focus:after:absolute focus:after:z-[1] focus:after:block focus:after:h-5 focus:after:w-5 focus:after:rounded-full focus:after:content-[''] checked:focus:border-primary checked:focus:bg-primary checked:focus:before:ms-[1.0625rem] checked:focus:before:scale-100 checked:focus:before:shadow-switch-3 checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s]"
+         type="checkbox"
+         role="switch"
+         id="removeSwitchChecked"
+         hx-target="#flash_message"
+         name="hx_remove_winner"
+         hx-trigger="change"
+         hx-post="{{ url_for("settings") }}"
+         hx-include="[name='hx_remove_winner']"
+         {% if settings.hx_remove_winner == "on" %}checked{% endif %} />
+    <div class="flex space-x-4">
+      <label class="flex ps-[0.15rem] hover:cursor-pointer"
+           for="removeSwitchChecked">
+        <svg xmlns="http://www.w3.org/2000/svg"
+           fill="none"
+           viewBox="0 0 24 24"
+           stroke-width="1.5"
+           stroke="currentColor"
+           class="w-6 h-6 mr-4 text-warning">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+        </svg>
+        Remove Name and Prize once they are drawn.
+      </label>
+      <input type="hidden" name="hx_remove_winner" value="off" />
+    </div>
+  </div>
+  <div class="flex flex-grow">
+    <input class="me-2 mb-4 sm:mb-0 mt-[0.3rem] h-3.5 w-8 appearance-none rounded-[0.4375rem] bg-black/25 before:pointer-events-none before:absolute before:h-3.5 before:w-3.5 before:rounded-full before:bg-transparent before:content-[''] after:absolute after:z-[2] after:-mt-[0.1875rem] after:h-5 after:w-5 after:rounded-full after:border-none after:bg-white after:shadow-switch-2 after:transition-[background-color_0.2s,transform_0.2s] after:content-[''] checked:bg-primary checked:after:absolute checked:after:z-[2] checked:after:-mt-[3px] checked:after:ms-[1.0625rem] checked:after:h-5 checked:after:w-5 checked:after:rounded-full checked:after:border-none checked:after:bg-primary checked:after:shadow-switch-1 checked:after:transition-[background-color_0.2s,transform_0.2s] checked:after:content-[''] hover:cursor-pointer focus:outline-none focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-switch-3 focus:before:shadow-black/60 focus:before:transition-[box-shadow_0.2s,transform_0.2s] focus:after:absolute focus:after:z-[1] focus:after:block focus:after:h-5 focus:after:w-5 focus:after:rounded-full focus:after:content-[''] checked:focus:border-primary checked:focus:bg-primary checked:focus:before:ms-[1.0625rem] checked:focus:before:scale-100 checked:focus:before:shadow-switch-3 checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s]"
+          type="checkbox"
+          role="switch"
+          id="logSwitchChecked"
+          hx-target="#flash_message"
+          name="hx_log_winner"
+          hx-trigger="change"
+          hx-post="{{ url_for("settings") }}"
+          hx-include="[name='hx_log_winner']"
+          {% if settings.hx_log_winner == "on" %}checked{% endif %} />
+    <div class="flex space-x-4">
+      <label class="flex ps-[0.15rem] hover:cursor-pointer"
+            for="logSwitchChecked">
+        <svg xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6 mr-4 text-warning">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+        </svg>
+        Log Name and Prize.
+      </label>
+      <input type="hidden" name="hx_log_winner" value="off" />
+    </div>
+  </div>
+</section>
+<hr class="w-11/12 mx-auto m-6 h-0.5 border-t-0 bg-danger" />
+<section class="w-11/12 pt-6 ml-10">
+  <h6 class="px-6 pb-2 mb-4 text-6xl leading-tight sm:text-4xl text-warning">Import Names</h6>
+  <p class="px-6 pb-2 text-3xl font-light sm:text-xl">
+    Your xlsx, xls or csv file
+    <span class="text-info">MUST</span>
+    be in the following order with a header row. Only first_name is required.
+  </p>
+  <div class="flex flex-col">
+    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+      <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+        <div class="overflow-hidden">
+          <table class="min-w-full p-6 m-6 text-base font-light text-left text-white sm:text-sm">
+            <thead class="font-medium text-warning border-b border-neutral-200 bg-black/[0.02] border-white/10">
+              <tr>
+                <th scope="col" class="px-6 py-4">first_name</th>
+                <th scope="col" class="px-6 py-4">last_name</th>
+                <th scope="col" class="px-6 py-4">organization</th>
+                <th scope="col" class="px-6 py-4">email</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-neutral-200 bg-black/[0.02] border-white/10">
+                <td class="px-6 py-4 font-medium whitespace-nowrap">Required</td>
+                <td class="px-6 py-4 whitespace-nowrap">Optional</td>
+                <td class="px-6 py-4 whitespace-nowrap">Optional</td>
+                <td class="px-6 py-4 whitespace-nowrap">Optional</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <form class="flex items-center px-6 pb-2 mb-8"
+        hx-encoding="multipart/form-data">
+    <input class="relative m-0 block w-full min-w-0 flex-auto cursor-pointer rounded border border-solid border-secondary-500 bg-transparent bg-clip-padding px-3 py-[0.32rem] text-base font-normal transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:me-3 file:cursor-pointer file:overflow-hidden file:rounded-none file:border-0 file:border-e file:border-solid file:border-inherit file:bg-transparent file:px-3 file:py-[0.32rem]  focus:border-primary focus:text-white focus:shadow-inset focus:outline-none border-white/70 text-white  file:text-white"
+           type="file"
+           name="names"
+           id="formNames" />
+    <a class="flex-auto px-12 py-2 mx-4 text-base font-medium leading-normal uppercase transition duration-150 ease-in-out rounded bg-danger text-white hover:bg-danger-600 hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:bg-danger-600 focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:outline-none focus:ring-0 active:bg-danger-700 active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)]" data-te-ripple-init data-te-ripple-color="light" hx-post={{ url_for("import_file") }} hx-target="#page-content" role="button">Import</a>
+  </form>
+</section>
+<hr class="w-11/12 mx-auto m-6 h-0.5 border-t-0 bg-danger" />
+<section class="w-11/12 pt-6 ml-10">
+  <h6 class="px-6 pb-2 mb-4 text-6xl leading-tight sm:text-4xl text-warning">Import Prizes</h6>
+  <p class="px-6 pb-2 text-3xl font-light sm:text-xl">
+    The same rules apply as specified above for names import. In addition all fields are required.
+  </p>
+  <div class="flex flex-col">
+    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+      <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+        <div class="overflow-hidden">
+          <table class="min-w-full p-6 m-6 text-base font-light text-left text-white sm:text-sm">
+            <thead class="font-medium text-warning border-b border-neutral-200 bg-black/[0.02] border-white/10">
+              <tr>
+                <th scope="col" class="px-6 py-4">prize</th>
+                <th scope="col" class="px-6 py-4">sponsor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-neutral-200 bg-black/[0.02] border-white/10">
+                <td class="px-6 py-4 font-medium whitespace-nowrap">Required</td>
+                <td class="px-6 py-4 font-medium whitespace-nowrap">Required</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <form class="flex items-center px-6 pb-2 mb-8"
+        hx-encoding="multipart/form-data">
+    <input class="relative m-0 block w-full min-w-0 flex-auto cursor-pointer rounded border border-solid border-secondary-500 bg-transparent bg-clip-padding px-3 py-[0.32rem] text-base font-normal transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:me-3 file:cursor-pointer file:overflow-hidden file:rounded-none file:border-0 file:border-e file:border-solid file:border-inherit file:bg-transparent file:px-3 file:py-[0.32rem]  focus:border-primary focus:text-white focus:shadow-inset focus:outline-none border-white/70 text-white  file:text-white"
+           type="file"
+           name="prizes"
+           id="formPrizes" />
+    <a class="flex-auto px-12 py-2 mx-4 text-base font-medium leading-normal uppercase transition duration-150 ease-in-out rounded bg-danger text-white hover:bg-danger-600 hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:bg-danger-600 focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:outline-none focus:ring-0 active:bg-danger-700 active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)]" data-te-ripple-init data-te-ripple-color="light"  hx-post={{ url_for("import_file") }} hx-target="#page-content" role="button">Import</a>
+  </form>
+</section>

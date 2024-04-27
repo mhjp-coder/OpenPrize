@@ -1,0 +1,18 @@
+<div id="flash_message">{% include "flash.p.html" %}</div>
+<section class="mb-32">
+  <div class="relative overflow-hidden rounded-lg bg-cover bg-no-repeat bg-[50%] bg-[url('https://mdbcdn.b-cdn.net/img/new/textures/full/154.jpg')] h-[500px] md:h-[400px] lg:h-[200px]">
+  </div>
+  <div class="container px-6 mx-auto md:px-12 xl:px-32">
+    <div class="text-center">
+      <div class="mt-[-170px] block rounded-lg bg-[#1F29378c] px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] backdrop-blur-[30px] md:py-16 md:px-12">
+        <h1 class="mb-16 text-5xl font-bold tracking-tight md:text-6xl xl:text-7xl">
+          What are you Waiting for!
+          <br />
+          <span class="text-danger">Lets get started</span>
+        </h1>
+        <a class="mb-2 inline-block rounded bg-danger px-12 pt-4 pb-3.5 text-2xl font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#dc4c64] transition duration-150 ease-in-out hover:bg-danger-600 hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:bg-danger-600 focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:outline-none focus:ring-0 active:bg-danger-700 active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] md:mr-2 md:mb-0" data-te-ripple-init data-te-ripple-color="light" hx-get={{ url_for("draw") }} hx-target="#page-content" hx-push-url="true" role="button">Draw</a>
+        <a class="inline-block rounded px-12 pt-4 pb-3.5 text-2xl font-medium uppercase leading-normal text-danger transition duration-150 ease-in-out hover:bg-neutral-500 hover:bg-opacity-10 hover:text-danger-600 focus:text-danger-600 focus:outline-none focus:ring-0 active:text-danger-700" data-te-ripple-init data-te-ripple-color="light" hx-get={{ url_for("settings") }} hx-target="#page-content" hx-push-url="true" role="button">Import</a>
+      </div>
+    </div>
+  </div>
+</section>

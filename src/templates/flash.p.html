@@ -1,0 +1,10 @@
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for catagory, message in messages %}
+      <div class="p-4 mb-4 text-sm rounded-lg text-white bg-{{ catagory }} bg-opacity-40"
+           role="alert">
+        <span class="text-xl font-medium">{{ message }}</span>
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
