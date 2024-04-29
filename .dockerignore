@@ -26,3 +26,4 @@
 **/.DS_Store
 LICENSE
 README.md
+!**/node_modules/tw-elements/js/

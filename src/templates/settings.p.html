@@ -17,14 +17,6 @@
     <div class="flex space-x-4">
       <label class="flex ps-[0.15rem] hover:cursor-pointer"
            for="removeSwitchChecked">
-        <svg xmlns="http://www.w3.org/2000/svg"
-           fill="none"
-           viewBox="0 0 24 24"
-           stroke-width="1.5"
-           stroke="currentColor"
-           class="w-6 h-6 mr-4 text-warning">
-          <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
-        </svg>
         Remove Name and Prize once they are drawn.
       </label>
       <input type="hidden" name="hx_remove_winner" value="off" />
@@ -44,14 +36,6 @@
     <div class="flex space-x-4">
       <label class="flex ps-[0.15rem] hover:cursor-pointer"
             for="logSwitchChecked">
-        <svg xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="w-6 h-6 mr-4 text-warning">
-          <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
-        </svg>
         Log Name and Prize.
       </label>
       <input type="hidden" name="hx_log_winner" value="off" />
@@ -136,5 +120,18 @@
            name="prizes"
            id="formPrizes" />
     <a class="flex-auto px-12 py-2 mx-4 text-base font-medium leading-normal uppercase transition duration-150 ease-in-out rounded bg-danger text-white hover:bg-danger-600 hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:bg-danger-600 focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:outline-none focus:ring-0 active:bg-danger-700 active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)]" data-te-ripple-init data-te-ripple-color="light"  hx-post={{ url_for("import_file") }} hx-target="#page-content" role="button">Import</a>
+  </form>
+</section>
+<hr class="w-11/12 mx-auto m-6 h-0.5 border-t-0 bg-danger" />
+<section class="w-11/12 pt-6 ml-10">
+  <h6 class="px-6 pb-2 mb-4 text-6xl leading-tight sm:text-4xl text-warning">Delete Data</h6>
+  <p class="px-6 pb-2 text-3xl font-light sm:text-xl">
+    <span class="text-danger">DANGER!</span>
+    This will clear the database of all data!
+  </p>
+  <form class="flex items-center px-6 pb-2 mb-8"
+        hx-encoding="multipart/form-data">
+    <a class="my-6 inline-block rounded bg-danger px-12 pt-4 pb-3.5 text-2xl font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#dc4c64] transition duration-150 ease-in-out hover:bg-danger-600 hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:bg-danger-600 focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:outline-none focus:ring-0 active:bg-danger-700 active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] md:mr-2 md:mb-0" data-te-ripple-init data-te-ripple-color="light" hx-confirm="Are you sure you wish to delete all data?" hx-post={{ url_for("delete_data") }} hx-target="#flash_message" role="button">Delete Data</a>
+
   </form>
 </section>

@@ -6,7 +6,7 @@ import pandas as pd
 from flask import Flask, flash, g, render_template, request
 from flask_htmx import HTMX
 
-DATABASE = "database.sqlite3"
+DATABASE = "db/database.sqlite3"
 ALLOWED_EXTENSIONS = {"xlsx", "xls", "csv"}
 
 app = Flask(__name__)
@@ -133,6 +133,16 @@ def settings():
     return render_template(
         "base.html", partial_template=partial_template, settings=setting_state
     )
+
+
+@app.route("/delete_data", methods=["POST"])
+def delete_data():
+    if request.method == "POST":
+        if os.path.exists(DATABASE):
+            os.remove(DATABASE)
+            flash("Database deleted successfully", "success")
+        init_db()
+    return render_template("flash.p.html")
 
 
 def allowed_file(filename):

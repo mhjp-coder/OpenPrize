@@ -1,27 +1,31 @@
 <div id="flash_message">{% include "flash.p.html" %}</div>
 {% if ctx.names_in_db %}
-  <section class="mx-auto">
-    <article class="flex flex-col mx-auto text-2xl lg:text-xl">
-      <figure class="mx-auto">
-        <img src="{{ url_for('static', filename='logo.png') }}"
-             width="100%"
-             height="100%"
-             alt="Logo"
-             class="mx-auto size-2/3" />
-      </figure>
-      {% if ctx.name %}
-        <div class="flex flex-col my-10 text-5xl justify-evenly md:flex-row">
-          <h1 class="mb-10 bg-base-300 text-primary">
-            {{ ctx.name[1] }}
-            {% if ctx.name[2] %}{{ ctx.name[2] }}{% endif %}
-          </h1>
-          <h1 class="mb-10 bg-base-300 text-secondary">
-            {% if ctx.name[3] %}From {{ ctx.name[3] }}{% endif %}
-          </h1>
+  <section class="mb-32">
+    <div class="relative overflow-hidden rounded-lg bg-cover bg-no-repeat bg-[50%] bg-[url('https://mdbcdn.b-cdn.net/img/new/textures/full/154.jpg')] h-[500px] md:h-[400px] lg:h-[200px]">
+    </div>
+    <div class="container px-6 mx-auto md:px-12 xl:px-32">
+      <div class="text-center">
+        {% if ctx.name %}
+        <div class="mt-[-170px] block rounded-lg bg-[#1F29378c] px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] backdrop-blur-[30px] md:py-16 md:px-12">
+
+            <h1 class="mb-6 text-xl font-bold tracking-tight md:text-3xl xl:text-4xl">
+              Congratulations!
+            </h1>
+            <h1 class="mb-16 text-xl font-bold tracking-tight md:text-3xl xl:text-4xl text-danger">
+              {{ ctx.name[1] }} {{ ctx.name[2] if ctx.name[2] is not none }}
+            </h1>
+            {% if ctx.name[3] %}
+              <h1 class="mb-6 text-xl font-bold tracking-tight md:text-3xl xl:text-4xl">
+                From
+              </h1>
+              <h1 class="mb-16 text-xl font-bold tracking-tight md:text-3xl xl:text-4xl text-danger">
+                {{ ctx.name[3] }}
+              </h1>
+            {% endif %}
         </div>
-        <h2 class="mx-auto text-4xl text-accent">Congratulations!</h2>
-      {% endif %}
-    </article>
+        {% endif %}
+      </div>
+    </div>
     <hr class="my-12 h-0.5 border-t-0 bg-danger" />
     <form class="flex flex-col items-center justify-center w-full mx-auto mb-4 space-x-4 space-y-4 sm:flex-row"
           hx-encoding="multipart/form-data">
@@ -50,7 +54,7 @@
         <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
           <div class="overflow-hidden">
             <table
-              class="min-w-full font-light text-left text-md sm:text-md">
+              class="min-w-full font-light text-left">
               <thead
                 class="font-medium border-b border-white/10">
                 <tr>
@@ -61,7 +65,7 @@
               </thead>
               <tbody>
                 {% for winner in ctx.winners %}
-                  <tr class="border-b border-white/10"
+                  <tr class="text-sm border-b cursor-pointer border-white/10 hover:bg-white/10"
                       hx-target="#winner-details">
                       <td class="px-6 py-4 whitespace-nowrap">{{ winner[1] }} {{ winner[2] if winner[2] is not none }}</td>
                       <td class="px-6 py-4 whitespace-nowrap">{{ winner[7] if winner[7] is not none }}</td>

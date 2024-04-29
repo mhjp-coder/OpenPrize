@@ -6,7 +6,7 @@
       "previewLimit": 50,
       "driver": "SQLite",
       "name": "Local DB",
-      "database": "${workspaceFolder:OpenPrize}/src/database.sqlite3"
+      "database": "${workspaceFolder:OpenPrize}/src/db/database.sqlite3"
     }
   ]
 }

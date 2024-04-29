@@ -25,4 +25,4 @@ npm install -D tailwindcss
 - [x] add feature to import from csv file as well.
 - [x] add feature to remove name from list after prize is awarded.
 - [x] add feature to log winners into a seperate table.
-- [ ] add list view of prizes and the winners.
+- [x] add list view of prizes and the winners.
