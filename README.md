@@ -16,6 +16,13 @@ If tailwind is not installed, run the following command from the project root to
 npm install -D tailwindcss
 ```
 
+If you would like to build and upload to a container repository, you can run the following command.
+{REPO} is the repository you would like to upload to. In the case of dockerhub, it would be your username.
+
+```bash
+docker build -t {REPO}/openprize:latest -f Dockerfile.amd64 . && docker push {REPO}/openprize:latest
+```
+
 ## TODO
 
 - [x] Add a record prize awarded feature to record the prize and the winner this is needed because you have to be in the room to win the prize.

@@ -26,7 +26,10 @@
         <select class="flex-grow w-full rounded-lg text-neutral-700 border py-[9px] px-3 pr-4 text-md focus:border-blue-400 focus:ring-1 focus:ring-blue-400 focus:outline-none"
                 name="prize">
           {% for prize in ctx.prizes %}
-            <option value="{{ prize[0] }}">{{ prize[1] }} - {{ prize[2] if prize[2] is not none }}</option>
+            <option value="{{ prize[0] }}">
+              {{ prize[1] }}
+              {% if prize[2] is not none %}- {{ prize[2] }}{% endif %}
+            </option>
           {% endfor %}
         </select>
       {% endif %}
