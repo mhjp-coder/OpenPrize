@@ -1,0 +1,15 @@
+{% if ctx.name %}
+  <div class="text-center">
+    <div class="mt-[-170px] block rounded-lg bg-[#1F29378c] px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] backdrop-blur-[30px] md:py-16 md:px-12">
+      <input id="winnerName" class="invisible" value="{{ ctx.name[0] }}" />
+      <h1 class="mb-6 text-xl font-bold tracking-tight md:text-3xl xl:text-4xl">Congratulations!</h1>
+      <h1 class="mb-16 text-xl font-bold tracking-tight md:text-3xl xl:text-4xl text-danger">
+        {{ ctx.name[1] }} {{ ctx.name[2] if ctx.name[2] is not none }}
+      </h1>
+      {% if ctx.name[3] %}
+        <h1 class="mb-6 text-xl font-bold tracking-tight md:text-3xl xl:text-4xl">From</h1>
+        <h1 class="mb-16 text-xl font-bold tracking-tight md:text-3xl xl:text-4xl text-danger">{{ ctx.name[3] }}</h1>
+      {% endif %}
+    </div>
+  </div>
+{% endif %}

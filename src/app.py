@@ -42,7 +42,6 @@ def draw():
 
 @app.route("/draw_name", methods=["GET", "POST"])
 def draw_name():
-    partial_template = "draw.p.html"
     name = None
     prize = None
     ctx = {}
@@ -67,17 +66,37 @@ def draw_name():
             name = cursor.execute(
                 "SELECT * FROM names ORDER BY RANDOM() LIMIT 1"
             ).fetchone()
-            # Log the winner and remove the entry only if the setting is on
-            log_winner(conn, name, prize)
-            remove_entry(conn, name, prize)
 
     prizes = cursor.execute("SELECT * FROM prizes").fetchall()
     ctx["name"] = name if name else None
     ctx["prizes"] = prizes if prizes else None
     ctx["winners"] = fetch_winners(conn)
     if htmx:
-        return render_template(partial_template, ctx=ctx)
-    return render_template("base.html", partial_template=partial_template, ctx=ctx)
+        return render_template("winner-detail.p.html", ctx=ctx)
+    return render_template("base.html", partial_template="draw.p.html", ctx=ctx)
+
+
+@app.route("/award_prize", methods=["POST"])
+def award_prize():
+    partial_template = "draw.p.html"
+    ctx = {}
+    conn = connect_db()
+    ctx["names_in_db"] = table_exists(conn, "names")
+    cursor = conn.cursor()
+    name = cursor.execute(
+        "SELECT * FROM names WHERE id = ?", (request.form.get("name_id"),)
+    ).fetchone()
+    prize = cursor.execute(
+        "SELECT * FROM prizes WHERE id = ?", (request.form.get("prize_id"),)
+    ).fetchone()
+    log_winner(conn, name, prize)
+    remove_entry(conn, name, prize)
+
+    prizes = cursor.execute("SELECT * FROM prizes").fetchall()
+    ctx["name"] = name if name else None
+    ctx["prizes"] = prizes if prizes else None
+    ctx["winners"] = fetch_winners(conn)
+    return render_template(partial_template, ctx=ctx)
 
 
 @app.route("/import_file", methods=["POST"])
