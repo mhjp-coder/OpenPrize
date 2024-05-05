@@ -5,39 +5,34 @@
 <section class="flex flex-col p-6 my-6 space-y-8 justify-evenly">
   <div class="flex flex-grow">
     <input class="me-2 mb-4 sm:mb-0 mt-[0.3rem] h-3.5 w-8 appearance-none rounded-[0.4375rem] bg-black/25 before:pointer-events-none before:absolute before:h-3.5 before:w-3.5 before:rounded-full before:bg-transparent before:content-[''] after:absolute after:z-[2] after:-mt-[0.1875rem] after:h-5 after:w-5 after:rounded-full after:border-none after:bg-white after:shadow-switch-2 after:transition-[background-color_0.2s,transform_0.2s] after:content-[''] checked:bg-primary checked:after:absolute checked:after:z-[2] checked:after:-mt-[3px] checked:after:ms-[1.0625rem] checked:after:h-5 checked:after:w-5 checked:after:rounded-full checked:after:border-none checked:after:bg-primary checked:after:shadow-switch-1 checked:after:transition-[background-color_0.2s,transform_0.2s] checked:after:content-[''] hover:cursor-pointer focus:outline-none focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-switch-3 focus:before:shadow-black/60 focus:before:transition-[box-shadow_0.2s,transform_0.2s] focus:after:absolute focus:after:z-[1] focus:after:block focus:after:h-5 focus:after:w-5 focus:after:rounded-full focus:after:content-[''] checked:focus:border-primary checked:focus:bg-primary checked:focus:before:ms-[1.0625rem] checked:focus:before:scale-100 checked:focus:before:shadow-switch-3 checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s]"
-         type="checkbox"
-         role="switch"
-         id="removeSwitchChecked"
-         hx-target="#flash_message"
-         name="hx_remove_winner"
-         hx-trigger="change"
-         hx-post="{{ url_for("settings") }}"
-         hx-include="[name='hx_remove_winner']"
-         {% if settings.hx_remove_winner == "on" %}checked{% endif %} />
+           type="checkbox"
+           role="switch"
+           id="removeSwitchChecked"
+           hx-target="#flash_message"
+           name="hx_remove_winner"
+           hx-trigger="change"
+           hx-post="{{ url_for("settings") }}"
+           hx-include="[name='hx_remove_winner']"
+           {% if settings.hx_remove_winner == "on" %}checked{% endif %} />
     <div class="flex space-x-4">
       <label class="flex ps-[0.15rem] hover:cursor-pointer"
-           for="removeSwitchChecked">
-        Remove Name and Prize once they are drawn.
-      </label>
+             for="removeSwitchChecked">Remove Name and Prize once they are drawn.</label>
       <input type="hidden" name="hx_remove_winner" value="off" />
     </div>
   </div>
   <div class="flex flex-grow">
     <input class="me-2 mb-4 sm:mb-0 mt-[0.3rem] h-3.5 w-8 appearance-none rounded-[0.4375rem] bg-black/25 before:pointer-events-none before:absolute before:h-3.5 before:w-3.5 before:rounded-full before:bg-transparent before:content-[''] after:absolute after:z-[2] after:-mt-[0.1875rem] after:h-5 after:w-5 after:rounded-full after:border-none after:bg-white after:shadow-switch-2 after:transition-[background-color_0.2s,transform_0.2s] after:content-[''] checked:bg-primary checked:after:absolute checked:after:z-[2] checked:after:-mt-[3px] checked:after:ms-[1.0625rem] checked:after:h-5 checked:after:w-5 checked:after:rounded-full checked:after:border-none checked:after:bg-primary checked:after:shadow-switch-1 checked:after:transition-[background-color_0.2s,transform_0.2s] checked:after:content-[''] hover:cursor-pointer focus:outline-none focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-switch-3 focus:before:shadow-black/60 focus:before:transition-[box-shadow_0.2s,transform_0.2s] focus:after:absolute focus:after:z-[1] focus:after:block focus:after:h-5 focus:after:w-5 focus:after:rounded-full focus:after:content-[''] checked:focus:border-primary checked:focus:bg-primary checked:focus:before:ms-[1.0625rem] checked:focus:before:scale-100 checked:focus:before:shadow-switch-3 checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s]"
-          type="checkbox"
-          role="switch"
-          id="logSwitchChecked"
-          hx-target="#flash_message"
-          name="hx_log_winner"
-          hx-trigger="change"
-          hx-post="{{ url_for("settings") }}"
-          hx-include="[name='hx_log_winner']"
-          {% if settings.hx_log_winner == "on" %}checked{% endif %} />
+           type="checkbox"
+           role="switch"
+           id="logSwitchChecked"
+           hx-target="#flash_message"
+           name="hx_log_winner"
+           hx-trigger="change"
+           hx-post="{{ url_for("settings") }}"
+           hx-include="[name='hx_log_winner']"
+           {% if settings.hx_log_winner == "on" %}checked{% endif %} />
     <div class="flex space-x-4">
-      <label class="flex ps-[0.15rem] hover:cursor-pointer"
-            for="logSwitchChecked">
-        Log Name and Prize.
-      </label>
+      <label class="flex ps-[0.15rem] hover:cursor-pointer" for="logSwitchChecked">Log Name and Prize.</label>
       <input type="hidden" name="hx_log_winner" value="off" />
     </div>
   </div>
@@ -88,9 +83,7 @@
 <hr class="w-11/12 mx-auto m-6 h-0.5 border-t-0 bg-danger" />
 <section class="w-11/12 pt-6 ml-10">
   <h6 class="px-6 pb-2 mb-4 text-6xl leading-tight sm:text-4xl text-warning">Import Prizes</h6>
-  <p class="px-6 pb-2 text-3xl font-light sm:text-xl">
-    The same rules apply as specified above for names import. In addition all fields are required.
-  </p>
+  <p class="px-6 pb-2 text-3xl font-light sm:text-xl">The same rules apply as specified above for names import.</p>
   <div class="flex flex-col">
     <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
       <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
@@ -99,13 +92,15 @@
             <thead class="font-medium text-warning border-b border-neutral-200 bg-black/[0.02] border-white/10">
               <tr>
                 <th scope="col" class="px-6 py-4">prize</th>
+                <th scope="col" class="px-6 py-4">description</th>
                 <th scope="col" class="px-6 py-4">sponsor</th>
               </tr>
             </thead>
             <tbody>
               <tr class="border-b border-neutral-200 bg-black/[0.02] border-white/10">
                 <td class="px-6 py-4 font-medium whitespace-nowrap">Required</td>
-                <td class="px-6 py-4 font-medium whitespace-nowrap">Required</td>
+                <td class="px-6 py-4 font-medium whitespace-nowrap">Optional</td>
+                <td class="px-6 py-4 font-medium whitespace-nowrap">Optional</td>
               </tr>
             </tbody>
           </table>
@@ -132,6 +127,5 @@
   <form class="flex items-center px-6 pb-2 mb-8"
         hx-encoding="multipart/form-data">
     <a class="my-6 inline-block rounded bg-danger px-12 pt-4 pb-3.5 text-2xl font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#dc4c64] transition duration-150 ease-in-out hover:bg-danger-600 hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:bg-danger-600 focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:outline-none focus:ring-0 active:bg-danger-700 active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] md:mr-2 md:mb-0" data-te-ripple-init data-te-ripple-color="light" hx-confirm="Are you sure you wish to delete all data?" hx-post={{ url_for("delete_data") }} hx-target="#flash_message" role="button">Delete Data</a>
-
   </form>
 </section>

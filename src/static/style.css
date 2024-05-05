@@ -764,26 +764,6 @@ html.dark{
   z-index: 999;
 }
 
-.col-span-2{
-  grid-column: span 2 / span 2;
-}
-
-.col-span-6{
-  grid-column: span 6 / span 6;
-}
-
-.row-span-1{
-  grid-row: span 1 / span 1;
-}
-
-.row-span-2{
-  grid-row: span 2 / span 2;
-}
-
-.row-span-3{
-  grid-row: span 3 / span 3;
-}
-
 .m-0{
   margin: 0px;
 }
@@ -810,11 +790,6 @@ html.dark{
 .my-6{
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-}
-
-.my-16{
-  margin-top: 4rem;
-  margin-bottom: 4rem;
 }
 
 .mb-0{
@@ -883,10 +858,6 @@ html.dark{
 
 .table{
   display: table;
-}
-
-.grid{
-  display: grid;
 }
 
 .hidden{
@@ -1076,26 +1047,6 @@ html.dark{
           appearance: none;
 }
 
-.grid-flow-row{
-  grid-auto-flow: row;
-}
-
-.grid-flow-col{
-  grid-auto-flow: column;
-}
-
-.grid-cols-8{
-  grid-template-columns: repeat(8, minmax(0, 1fr));
-}
-
-.grid-rows-3{
-  grid-template-rows: repeat(3, minmax(0, 1fr));
-}
-
-.grid-rows-2{
-  grid-template-rows: repeat(2, minmax(0, 1fr));
-}
-
 .flex-col{
   flex-direction: column;
 }
@@ -1120,38 +1071,22 @@ html.dark{
   justify-content: space-evenly;
 }
 
-.gap-4{
-  gap: 1rem;
-}
-
 .space-x-4 > :not([hidden]) ~ :not([hidden]){
   --tw-space-x-reverse: 0;
   margin-right: calc(1rem * var(--tw-space-x-reverse));
   margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
-.space-y-4 > :not([hidden]) ~ :not([hidden]){
+.space-y-6 > :not([hidden]) ~ :not([hidden]){
   --tw-space-y-reverse: 0;
-  margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+  margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
 }
 
 .space-y-8 > :not([hidden]) ~ :not([hidden]){
   --tw-space-y-reverse: 0;
   margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(2rem * var(--tw-space-y-reverse));
-}
-
-.space-x-6 > :not([hidden]) ~ :not([hidden]){
-  --tw-space-x-reverse: 0;
-  margin-right: calc(1.5rem * var(--tw-space-x-reverse));
-  margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
-}
-
-.space-y-6 > :not([hidden]) ~ :not([hidden]){
-  --tw-space-y-reverse: 0;
-  margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
 }
 
 .overflow-hidden{
@@ -1444,6 +1379,11 @@ html.dark{
   padding-bottom: 1.5rem;
 }
 
+.py-8{
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
 .py-\[0\.32rem\]{
   padding-top: 0.32rem;
   padding-bottom: 0.32rem;
@@ -1452,31 +1392,6 @@ html.dark{
 .py-\[0\.4rem\]{
   padding-top: 0.4rem;
   padding-bottom: 0.4rem;
-}
-
-.py-\[9px\]{
-  padding-top: 9px;
-  padding-bottom: 9px;
-}
-
-.py-16{
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-}
-
-.py-10{
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
-}
-
-.py-5{
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
-}
-
-.py-8{
-  padding-top: 2rem;
-  padding-bottom: 2rem;
 }
 
 .pb-2{
@@ -1489,10 +1404,6 @@ html.dark{
 
 .pb-3\.5{
   padding-bottom: 0.875rem;
-}
-
-.pr-4{
-  padding-right: 1rem;
 }
 
 .ps-\[0\.15rem\]{
@@ -2423,14 +2334,6 @@ p{
     margin-bottom: 0px;
   }
 
-  .sm\:grid-flow-row{
-    grid-auto-flow: row;
-  }
-
-  .sm\:flex-row{
-    flex-direction: row;
-  }
-
   .sm\:px-6{
     padding-left: 1.5rem;
     padding-right: 1.5rem;
@@ -2468,10 +2371,6 @@ p{
 
   .md\:h-\[400px\]{
     height: 400px;
-  }
-
-  .md\:grid-flow-row{
-    grid-auto-flow: row;
   }
 
   .md\:px-12{
