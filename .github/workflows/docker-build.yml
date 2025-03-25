@@ -6,7 +6,6 @@ on:
     paths:
       - "Dockerfile"
       - "src/**"
-      - "./node_modules/tw-elements/js/tw-elements.umd.min.js"
       - ".github/workflows/docker-build.yml"
   pull_request:
     branches: [main]
