@@ -7,7 +7,7 @@ Simple Prize drawing webapp
 Run the following during development for tailwind to compile the css.
 
 ```bash
-npx tailwindcss -i ./src/input.css -o ./src/static/style.css --watch
+npx tailwindcss -i ./src/static/input.css -o ./src/static/style.css --watch
 ```
 
 If tailwind is not installed, run the following command from the project root to install it.

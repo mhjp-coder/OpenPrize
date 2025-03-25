@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  web:
+    build: .
+    ports:
+      - "8080:5000"
+    volumes:
+      - ./src:/app
+      - ./node_modules/tw-elements/js/:/app/static/js/
+    environment:
+      FLASK_ENV: ${FLASK_ENV}
+    command: flask run --host=0.0.0.0 --debug
+  tailwindcss:
+    image: node:alpine
+    stdin_open: true
+    volumes:
+      - ./:/app
+    working_dir: /app
+    command: npx tailwindcss -i ./src/static/input.css -o ./src/static/style.css --watch
