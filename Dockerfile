@@ -11,7 +11,6 @@ ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
 COPY ./src/ /app
-COPY ./node_modules/tw-elements/js/tw-elements.umd.min.js /app/static/js/tw-elements.umd.min.js
 
 RUN python -m pip install -r requirements.txt
 
