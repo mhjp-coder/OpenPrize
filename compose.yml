@@ -1,25 +1,19 @@
 services:
   openprize:
-    image: ghcr.io/mhjp/openprize:latest
+    image: ghcr.io/mhjp-coder/openprize:latest
     hostname: openprize
     restart: unless-stopped
     networks:
       traefik_net:
-    env_file:
-      - path: .env
     volumes:
       - data:/app/db
     labels:
       - traefik.enable=true
       - traefik.http.routers.openprize.rule=Host(`openprize.${FQDN}`)
       - traefik.http.routers.openprize.entrypoints=websecure
-      - traefik.http.routers.openprize.middlewares=openprize-compress,openprize-auth,openprize-errorpages
-      - traefik.http.middlewares.openprize-auth.basicauth.users=admin:${OP_ADMIN_PASS}
+      - traefik.http.routers.openprize.middlewares=openprize-auth
+      - traefik.http.middlewares.openprize-auth.basicauth.users=${OP_ADMIN_PASS}
       - traefik.http.services.openprize.loadbalancer.server.port=5000
-      - traefik.http.middlewares.openprize-compress.compress=true
-      - traefik.http.middlewares.openprize-errorpages.errors.status=400-599
-      - traefik.http.middlewares.openprize-errorpages.errors.service=error
-      - traefik.http.middlewares.openprize-errorpages.errors.query=/{status}.html
     command: flask run --host=0.0.0.0
 ##############
 ## Networks ##
