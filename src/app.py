@@ -10,9 +10,8 @@ DATABASE = "db/database.sqlite3"
 ALLOWED_EXTENSIONS = {"xlsx", "xls", "csv"}
 
 app = Flask("openprize")
-app.secret_key = "yoursecretdevkey"
+app.secret_key = os.getenv("FLASK_SECRET_KEY")
 app.config["MAX_CONTENT_LENGTH"] = 32 * 1000 * 1000  # 32 MB
-app.config["PORT"] = 5002
 htmx = HTMX(app)
 
 
