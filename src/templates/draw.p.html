@@ -21,7 +21,7 @@
       name="prize" id="prizeSelect">
       {% for prize in ctx.prizes %}
       <option value="{{ prize[0] }}" id="prizeSelect">
-        {{ prize[1] }} - {{ prize[2] if prize[2] is not none }} - {{ prize[3] if prize[3] is not none }} - {{ prize[4]
+        {{ prize[1] }} - {{ prize[2] if prize[2] is not none }} - #{{ prize[4]
         if prize[4] is not none }}
       </option>
       {% endfor %}
@@ -60,7 +60,7 @@
                 <td class="px-6 py-4 whitespace-nowrap">{{ winner[1] }} {{ winner[2] if winner[2] is not none }}</td>
                 <td class="px-6 py-4 whitespace-nowrap">{{ winner[7] if winner[7] is not none }}</td>
                 <td class="px-6 py-4 whitespace-nowrap">{{ winner[9] if winner[9] is not none }}</td>
-                <td class="px-6 py-4 whitespace-nowrap">{{ winner[11] if winner[11] is not none }}</td>
+                <td class="px-6 py-4 whitespace-nowrap">{{ winner[10] if winner[10] is not none }}</td>
               </tr>
               {% endfor %}
             </tbody>
