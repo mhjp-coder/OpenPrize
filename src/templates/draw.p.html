@@ -21,7 +21,7 @@
       name="prize" id="prizeSelect">
       {% for prize in ctx.prizes %}
       <option value="{{ prize[0] }}" id="prizeSelect">
-        {{ prize[1] }} - {{ prize[2] if prize[2] is not none }} - #{{ prize[4]
+        {{ prize[1] }} - {{ prize[3] if prize[3] is not none }} - #{{ prize[4]
         if prize[4] is not none }}
       </option>
       {% endfor %}
