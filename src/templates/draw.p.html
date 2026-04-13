@@ -11,7 +11,7 @@
   <form class="flex flex-col w-full mx-auto mb-4 space-y-6" hx-encoding="multipart/form-data">
     <button
       class="mb-2 text-center rounded bg-danger px-12 py-6 text-2xl font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#dc4c64] transition duration-150 ease-in-out hover:bg-danger-600 hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:bg-danger-600 focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:outline-none focus:ring-0 active:bg-danger-700 active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)]"
-      data-te-ripple-init data-te-ripple-color="light" hx-post="{{ url_for(" draw_name") }}" hx-target="#winner-details"
+      data-te-ripple-init data-te-ripple-color="light" hx-post="{{ url_for('draw_name') }}" hx-target="#winner-details"
       hx-push-url="false"
       hx-on::before-request="document.getElementById('prizeSelect').disabled = true; document.getElementById('prizeSelect').disabled = true; document.getElementById('award').disabled = false;"
       type="button">Draw</button>
@@ -29,7 +29,7 @@
     {% endif %}
     <button
       class="text-center mb-2 rounded bg-danger px-12 py-6 text-2xl font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#dc4c64] transition duration-150 ease-in-out hover:bg-danger-600 hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:bg-danger-600 focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:outline-none focus:ring-0 active:bg-danger-700 active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)]"
-      data-te-ripple-init data-te-ripple-color="light" hx-post="{{ url_for(" award_prize") }}" hx-target="#page-content"
+      data-te-ripple-init data-te-ripple-color="light" hx-post="{{ url_for('award_prize') }}" hx-target="#page-content"
       hx-push-url="false"
       hx-vals="js:{'name_id': document.getElementById('winnerName').value, 'prize_id': document.getElementById('prizeSelect').value}"
       id="award" disabled type="button">Award</button>
