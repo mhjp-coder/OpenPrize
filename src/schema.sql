@@ -26,11 +26,13 @@ CREATE TABLE prizes (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   prize TEXT NOT NULL,
   description TEXT NULL,
-  sponsor TEXT NULL
+  sponsor TEXT NULL,
+  prize_id INTEGER NULL UNIQUE
 );
 CREATE TABLE prizes_won (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   prize TEXT NOT NULL,
   description TEXT NULL,
-  sponsor TEXT NULL
+  sponsor TEXT NULL,
+  prize_id INTEGER NULL UNIQUE
 );

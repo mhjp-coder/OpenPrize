@@ -1,76 +1,73 @@
 <div id="flash_message">{% include "flash.p.html" %}</div>
 {% if ctx.names_in_db %}
-  <section class="mb-32">
-    <div class="relative overflow-hidden rounded-lg bg-cover bg-no-repeat bg-[50%] bg-[url('https://mdbcdn.b-cdn.net/img/new/textures/full/154.jpg')] h-[500px] md:h-[400px] lg:h-[200px]">
-    </div>
-    <div class="container px-6 mx-auto md:px-12 xl:px-32">
-      <div id="winner-details">{% include "winner-detail.p.html" %}</div>
-    </div>
-    <hr class="my-12 h-0.5 border-t-0 bg-danger" />
-    <form class="flex flex-col w-full mx-auto mb-4 space-y-6"
-          hx-encoding="multipart/form-data">
-      <button class="mb-2 text-center rounded bg-danger px-12 py-6 text-2xl font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#dc4c64] transition duration-150 ease-in-out hover:bg-danger-600 hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:bg-danger-600 focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:outline-none focus:ring-0 active:bg-danger-700 active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)]"
-              data-te-ripple-init
-              data-te-ripple-color="light"
-              hx-post="{{ url_for("draw_name") }}"
-              hx-target="#winner-details"
-              hx-push-url="false"
-              hx-on::before-request="document.getElementById('prizeSelect').disabled = true; document.getElementById('prizeSelect').disabled = true; document.getElementById('award').disabled = false;"
-              type="button">Draw</button>
-      {% if ctx.prizes %}
-        <select class="w-full px-12 py-8 border rounded-lg text-neutral-700 text-md focus:border-blue-400 focus:ring-1 focus:ring-blue-400 focus:outline-none"
-                name="prize"
-                id="prizeSelect">
-          {% for prize in ctx.prizes %}
-            <option value="{{ prize[0] }}" id="prizeSelect">
-              {{ prize[1] }} - {{ prize[2] if prize[2] is not none }} - {{ prize[3] if prize[3] is not none }}
-            </option>
-          {% endfor %}
-        </select>
-      {% endif %}
-      <button class="text-center mb-2 rounded bg-danger px-12 py-6 text-2xl font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#dc4c64] transition duration-150 ease-in-out hover:bg-danger-600 hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:bg-danger-600 focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:outline-none focus:ring-0 active:bg-danger-700 active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)]"
-              data-te-ripple-init
-              data-te-ripple-color="light"
-              hx-post="{{ url_for("award_prize") }}"
-              hx-target="#page-content"
-              hx-push-url="false"
-              hx-vals="js:{'name_id': document.getElementById('winnerName').value, 'prize_id': document.getElementById('prizeSelect').value}"
-              id="award"
-              disabled
-              type="button">Award</button>
-    </form>
-  </section>
+<section class="mb-32">
+  <div
+    class="relative overflow-hidden rounded-lg bg-cover bg-no-repeat bg-[50%] bg-[url('https://mdbcdn.b-cdn.net/img/new/textures/full/154.jpg')] h-[500px] md:h-[400px] lg:h-[200px]">
+  </div>
+  <div class="container px-6 mx-auto md:px-12 xl:px-32">
+    <div id="winner-details">{% include "winner-detail.p.html" %}</div>
+  </div>
+  <hr class="my-12 h-0.5 border-t-0 bg-danger" />
+  <form class="flex flex-col w-full mx-auto mb-4 space-y-6" hx-encoding="multipart/form-data">
+    <button
+      class="mb-2 text-center rounded bg-danger px-12 py-6 text-2xl font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#dc4c64] transition duration-150 ease-in-out hover:bg-danger-600 hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:bg-danger-600 focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:outline-none focus:ring-0 active:bg-danger-700 active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)]"
+      data-te-ripple-init data-te-ripple-color="light" hx-post="{{ url_for(" draw_name") }}" hx-target="#winner-details"
+      hx-push-url="false"
+      hx-on::before-request="document.getElementById('prizeSelect').disabled = true; document.getElementById('prizeSelect').disabled = true; document.getElementById('award').disabled = false;"
+      type="button">Draw</button>
+    {% if ctx.prizes %}
+    <select
+      class="w-full px-12 py-8 border rounded-lg text-neutral-700 text-md focus:border-blue-400 focus:ring-1 focus:ring-blue-400 focus:outline-none"
+      name="prize" id="prizeSelect">
+      {% for prize in ctx.prizes %}
+      <option value="{{ prize[0] }}" id="prizeSelect">
+        {{ prize[1] }} - {{ prize[2] if prize[2] is not none }} - {{ prize[3] if prize[3] is not none }} - {{ prize[4]
+        if prize[4] is not none }}
+      </option>
+      {% endfor %}
+    </select>
+    {% endif %}
+    <button
+      class="text-center mb-2 rounded bg-danger px-12 py-6 text-2xl font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#dc4c64] transition duration-150 ease-in-out hover:bg-danger-600 hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:bg-danger-600 focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:outline-none focus:ring-0 active:bg-danger-700 active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)]"
+      data-te-ripple-init data-te-ripple-color="light" hx-post="{{ url_for(" award_prize") }}" hx-target="#page-content"
+      hx-push-url="false"
+      hx-vals="js:{'name_id': document.getElementById('winnerName').value, 'prize_id': document.getElementById('prizeSelect').value}"
+      id="award" disabled type="button">Award</button>
+  </form>
+</section>
 {% endif %}
 {% if ctx.winners %}
-  <hr class="my-12 h-0.5 border-t-0 bg-danger" />
-  <section class="mx-auto">
-    <h6 class="px-6 pb-2 mb-4 text-6xl leading-tight sm:text-4xl text-warning">Prizes Won</h6>
-    <article class="flex flex-col mx-auto text-2xl lg:text-xl">
-      <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-          <div class="overflow-hidden">
-            <table class="min-w-full font-light text-left">
-              <thead class="font-medium border-b border-white/10">
-                <tr>
-                  <th scope="col" class="px-6 py-4">Name</th>
-                  <th scope="col" class="px-6 py-4">Prize</th>
-                  <th scope="col" class="px-6 py-4">Sponsor</th>
-                </tr>
-              </thead>
-              <tbody>
-                {% for winner in ctx.winners %}
-                  <tr class="text-sm border-b cursor-pointer border-white/10 hover:bg-white/10"
-                      hx-target="#winner-details">
-                    <td class="px-6 py-4 whitespace-nowrap">{{ winner[1] }} {{ winner[2] if winner[2] is not none }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap">{{ winner[7] if winner[7] is not none }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap">{{ winner[9] if winner[9] is not none }}</td>
-                  </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-          </div>
+<hr class="my-12 h-0.5 border-t-0 bg-danger" />
+<section class="mx-auto">
+  <h6 class="px-6 pb-2 mb-4 text-6xl leading-tight sm:text-4xl text-warning">Prizes Won</h6>
+  <article class="flex flex-col mx-auto text-2xl lg:text-xl">
+    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+      <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+        <div class="overflow-hidden">
+          <table class="min-w-full font-light text-left">
+            <thead class="font-medium border-b border-white/10">
+              <tr>
+                <th scope="col" class="px-6 py-4">Name</th>
+                <th scope="col" class="px-6 py-4">Prize</th>
+                <th scope="col" class="px-6 py-4">Sponsor</th>
+                <th scope="col" class="px-6 py-4">Prize ID</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              {% for winner in ctx.winners %}
+              <tr class="text-sm border-b cursor-pointer border-white/10 hover:bg-white/10" hx-target="#winner-details">
+                <td class="px-6 py-4 whitespace-nowrap">{{ winner[1] }} {{ winner[2] if winner[2] is not none }}</td>
+                <td class="px-6 py-4 whitespace-nowrap">{{ winner[7] if winner[7] is not none }}</td>
+                <td class="px-6 py-4 whitespace-nowrap">{{ winner[9] if winner[9] is not none }}</td>
+                <td class="px-6 py-4 whitespace-nowrap">{{ winner[11] if winner[11] is not none }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
         </div>
       </div>
-    </article>
-  </section>
+    </div>
+  </article>
+</section>
 {% endif %}
